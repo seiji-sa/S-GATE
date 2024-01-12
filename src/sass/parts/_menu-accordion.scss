@@ -3,16 +3,16 @@
     background: #000;
 }
 .slide-list{
-    width: 100%;
     display: none;
     font-size: $base;
+    max-width: 1030px;
+    flex-wrap: wrap;
+    margin: 0 auto;
     @include mq(){
         display: flex;
         padding: 30px;
-        // grid-template-columns: repeat(4, minmax(100px, 1fr));
     }
     .slide-item{
-        // border-top: 1px solid #c0c0c0;
         border-bottom: .1px solid #3e3e3e;
         padding: 20px 10px;
         overflow: hidden;
@@ -21,6 +21,7 @@
         visibility: visible;
         display: block;
         @include mq(){
+            width: 25%;
             border: .1px solid #3e3e3e;
         }
     }
