@@ -23,7 +23,7 @@
         <nav class="navigation">
             <div class="nav-wrapper">
                 <ul class="navigation__list">
-                  <li id="slide-item" class="navigation__list-item navigation__link">サービス一覧</li>
+                  <li id="slide-item" class="navigation__list-item navigation__link navigation__icon-acd"><a href="#">サービス一覧</a></li>
                   <div class="slide-wrapper">
                       <ul class="slide-list">
                             <li class="slide-item"><a href="#">WebECサイト制作</a></li>
@@ -34,17 +34,23 @@
                             <li class="slide-item"><a href="#">SES</a></li>
                       </ul>
                   </div>
-                  <li class="navigation__list-item"><a href="#" class="navigation__link">会社概要</a></li>
-                  <li class="navigation__list-item"><a href="#" class="navigation__link">プライバシーポリシー</a></li>
-                  <li class="navigation__list-item"><a href="#" class="navigation__link">お問い合わせ</a></li>
+                  <li class="navigation__list-item navigation__icon-right"><a href="#" class="navigation__link">会社概要</a></li>
+                  <li class="navigation__list-item navigation__icon-right"><a href="#" class="navigation__link">プライバシーポリシー</a></li>
+                  <li class="navigation__list-item navigation__icon-right"><a href="#" class="navigation__link">お問い合わせ</a></li>
                 </ul>
-                <div class="wifi-icon"><i class="fa-sharp fa-solid fa-rss"></i></div>
-                <ul class="f-nav__list">
-                  <li><a href="">サービス一覧</a></li>
-                  <li><a href="">会社概要</a></li>
-                  <li><a href="">プライバシーポリシー</a></li>
-                  <li><a href="">お問い合わせ</a></li>
-              </ul>
+                <div class="nav-flex">
+                    <div class="wifi-icon"><i class="fa-sharp fa-solid fa-rss"></i></div>
+                    <ul class="f-nav__list">
+                      <li><a href="">サービス一覧</a></li>
+                      <li><a href="">会社概要</a></li>
+                      <li><a href="">プライバシーポリシー</a></li>
+                      <li><a href="">お問い合わせ</a></li>
+                    </ul>
+                    <form method="get" action="#" class="search_container">
+                        <input type="text" size="25">
+                        <input type="submit" value="&#xf002">
+                    </form>
+                </div>
             </div>
         </nav>
     </header>

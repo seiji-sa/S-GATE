@@ -479,7 +479,7 @@
   opacity: 0;
 }
 
-.header .navigation {
+.navigation {
   display: none;
   background: #1b2fb5;
   position: absolute;
@@ -490,74 +490,156 @@
   color: white;
 }
 @media screen and (min-width: 1200px) {
-  .header .navigation {
+  .navigation {
     height: calc(100vh - 80px);
     top: 80px;
   }
 }
-.header .nav-wrapper {
+
+.nav-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
-.header .navigation__list-item {
+
+.slide-list a, .wifi-icon, .f-nav__list a {
+  padding: 0 20px;
+}
+@media screen and (min-width: 750px) {
+  .slide-list a, .wifi-icon, .f-nav__list a {
+    padding: 0 30px;
+  }
+}
+
+.navigation__list-item {
+  padding: 10px 0;
+  font-size: 16px;
+}
+@media screen and (min-width: 750px) {
+  .navigation__list-item {
+    padding: 30px 30px;
+    font-size: 20px;
+  }
+}
+
+.navigation__list-item:first-child {
+  border-top: solid 1px #e06665;
+}
+
+.navigation__link {
+  text-decoration: none;
+  display: block;
+  transition: 0.5s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navigation__list-item:hover {
+    background: #00b7e0;
+  }
+}
+.navigation__list, .wifi-icon, .f-nav__list {
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 950px) {
+  .nav-flex {
+    display: flex;
+  }
+}
+.navigation__icon, .navigation__icon-acd, .navigation__icon-right {
   border-bottom: solid 1px #e06665;
   position: relative;
   cursor: pointer;
   font-weight: normal;
-  transition: all 0.5s ease;
 }
-.header .navigation__list-item::before, .header .navigation__list-item::after {
+.navigation__icon::before, .navigation__icon-acd::before, .navigation__icon-right::before {
+  position: absolute;
+  content: "";
+}
+
+.navigation__icon-right::before {
+  width: 10px;
+  height: 10px;
+  border-radius: 1%;
+  border-top: solid 1px white;
+  border-right: solid 1px white;
+  top: 48%;
+  right: 20px;
+  transform: rotate(45deg);
+}
+
+.navigation__icon-acd::before, .navigation__icon-acd::after {
   position: absolute;
   content: "";
   width: 15px;
-  height: 2px;
+  height: 1px;
   background-color: white;
   top: 48%;
   right: 15px;
 }
-.header .navigation__list-item::before {
+.navigation__icon-acd::before {
   transform: rotate(0deg);
 }
-.header .navigation__list-item::after {
+.navigation__icon-acd::after {
   transform: rotate(0deg);
 }
-.header .navigation__list-item.close::before {
+.navigation__icon-acd.close::before {
   transform: rotate(90deg);
 }
-.header .navigation__list-item.close::after {
+.navigation__icon-acd.close::after {
   transform: rotate(0deg);
 }
-.header .wifi-icon {
+
+.wifi-icon {
   height: 30px;
   width: 30px;
 }
-.header .f-nav__list {
+
+.f-nav__list {
   display: flex;
   white-space: nowrap;
   overflow-x: auto;
   gap: 20px;
   font-size: 12px;
 }
-.header .navigation__list-item:first-child {
-  border-top: solid 1px #e06665;
+
+.search_container {
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.8em;
+  overflow: hidden;
+  background: white;
+  margin: 20px 0;
+  width: calc(100% - 40px);
+  margin: 0 auto;
 }
-.header .navigation__link {
-  font-weight: 700;
-  text-decoration: none;
-  display: block;
-  padding: 5px 0;
-  transition: 0.5s;
+
+.search_container input[type=text] {
+  border: none;
+  height: 2em;
 }
-@media (hover: hover) and (pointer: fine) {
-  .header .navigation__link:hover {
-    background: #00b7e0;
-  }
+
+.search_container input[type=text]:focus {
+  outline: 0;
 }
-.header .navigation__list, .header .wifi-icon, .header .f-nav__list {
-  margin-bottom: 20px;
+
+.search_container input[type=submit] {
+  cursor: pointer;
+  font-family: FontAwesome;
+  font-size: 1em;
+  border: none;
+  color: black;
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  right: 0;
+  top: 0;
+  outline: none;
 }
 
 .list__box {
@@ -647,13 +729,28 @@
 }
 
 .slide-list {
+  width: 100%;
   display: none;
   font-size: 14px;
 }
 @media screen and (min-width: 750px) {
   .slide-list {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
+    display: flex;
+    padding: 30px;
+  }
+}
+.slide-list .slide-item {
+  border-bottom: 0.1px solid #3e3e3e;
+  padding: 20px 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  visibility: visible;
+  display: block;
+}
+@media screen and (min-width: 750px) {
+  .slide-list .slide-item {
+    border: 0.1px solid #3e3e3e;
   }
 }
 

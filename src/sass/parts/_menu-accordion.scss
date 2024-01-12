@@ -3,15 +3,27 @@
     background: #000;
 }
 .slide-list{
+    width: 100%;
     display: none;
     font-size: $base;
     @include mq(){
-        display: grid;
-        grid-template-columns: repeat(4, auto);
-
+        display: flex;
+        padding: 30px;
+        // grid-template-columns: repeat(4, minmax(100px, 1fr));
     }
-    // .slide-item{
+    .slide-item{
+        // border-top: 1px solid #c0c0c0;
+        border-bottom: .1px solid #3e3e3e;
+        padding: 20px 10px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        visibility: visible;
+        display: block;
+        @include mq(){
+            border: .1px solid #3e3e3e;
+        }
+    }
 
-    // }
 }
 

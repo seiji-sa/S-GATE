@@ -1,4 +1,7 @@
 @use './globals' as *;
+
+// ハンバーガー
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .h-menu{
     display: grid;
     place-items: center;
@@ -51,100 +54,178 @@
       }
 
 }
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
-
-
-.header {
-  .navigation {
-    display: none;
-    background: $cMain;
-    position: absolute;
-    top: 60px;
-    width: 100%;
-    height: calc(100vh - 70px);
-    z-index: 9999;
-    color: $cWhite;
-    @include mq(xl){
-      height: calc(100vh - 80px);
-      top: 80px;
-    }
+// レイアウト
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+.navigation {
+  display: none;
+  background: $cMain;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: calc(100vh - 70px);
+  z-index: 9999;
+  color: $cWhite;
+  @include mq(xl){
+    height: calc(100vh - 80px);
+    top: 80px;
   }
-  .nav-wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-  }
-  // .navigation__list {
+}
+.nav-wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
 
-  // }
-  .navigation__list-item{
-    border-bottom: solid 1px $cMenuBorder;
-    position: relative;
-    cursor: pointer;
-    font-weight: normal;
-    transition: all .5s ease;
-    &::before,
-    &::after{
-    position: absolute;
-    content:'';
-    width: 15px;
-    height: 2px;
-    background-color: $cWhite;
-    top:48%;
-    right: 15px;
-    }
-    &::before{
-        transform: rotate(0deg);
+.slide-list a, .wifi-icon, .f-nav__list a{
+ padding: 0 20px;
+ @include mq(){
+   padding: 0 30px;
+ }
+}
 
-    }
-    &::after{
-        transform: rotate(0deg);
-    }
-    &.close::before{
-        transform: rotate(90deg);
-
-    }
-    &.close::after{
-        transform: rotate(-0deg);
-    }
-
-  }
-  .navigation__list-item ,.wifi-icon, .f-nav__list{
+.navigation__list-item{
+  padding: 10px 0;
+    font-size: 16px;
     @include mq(){
-
+      padding: 30px 30px;
+      font-size: 20px;
     }
-  }
+}
 
-  .wifi-icon{
-    height: 30px;
-    width: 30px;
+.navigation__list-item:first-child {
+  border-top: solid 1px $cMenuBorder;
+}
+.navigation__link{
+  text-decoration: none;
+  display: block;
+
+  transition: .5s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .navigation__list-item:hover {
+    background: $cMenuHover;
   }
-  .f-nav__list{
-    display: flex;
-    white-space: nowrap;
-    overflow-x: auto;
-    gap: 20px;
-    font-size: $small;
-  }
-  .navigation__list-item:first-child {
-    border-top: solid 1px $cMenuBorder;
-  }
-  .navigation__link {
-    font-weight: 700;
-    text-decoration: none;
-    display: block;
-    padding: 5px 0;
-    transition: .5s;
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .navigation__link:hover {
-      background: $cMenuHover;
-    }
-  }
+}
 .navigation__list,.wifi-icon,.f-nav__list{
   margin-bottom: 20px;
 }
 
+@include mq(l2){
+  .nav-flex{
+    display: flex;
+  }
 }
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// ナビアイコン
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+.navigation__icon{
+  border-bottom: solid 1px $cMenuBorder;
+  position: relative;
+  cursor: pointer;
+  font-weight: normal;
+  &::before{
+  position: absolute;
+  content:'';
+}
+}
+.navigation__icon-right{
+@extend .navigation__icon;
+&::before{
+  width: 10px;
+  height: 10px;
+  border-radius: 1%;
+  border-top: solid 1px $cWhite;
+  border-right: solid 1px $cWhite;
+  top:48%;
+  right: 20px;
+  transform: rotate(45deg);
+  }
+}
+.navigation__icon-acd{
+  @extend .navigation__icon;
+  &::before,
+  &::after{
+  position: absolute;
+  content:'';
+  width: 15px;
+  height: 1px;
+  background-color: $cWhite;
+  top:48%;
+  right: 15px;
+  }
+  &::before{
+      transform: rotate(0deg);
+
+  }
+  &::after{
+      transform: rotate(0deg);
+  }
+  &.close::before{
+      transform: rotate(90deg);
+
+  }
+  &.close::after{
+      transform: rotate(-0deg);
+  }
+}
+
+.wifi-icon{
+  height: 30px;
+  width: 30px;
+}
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// navのフッターリスト
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+.f-nav__list{
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  font-size: $small;
+}
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// 検索バー
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+.search_container{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.8em;
+  overflow: hidden;
+  background: $cWhite;
+  margin: 20px 0;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+.search_container input[type="text"]{
+  border: none;
+  height: 2.0em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  font-size: 1em;
+  border: none;
+  color: black;
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  right: 0;
+  top: 0;
+  outline : none;
+}
+
+
