@@ -1,0 +1,24 @@
+{
+  "name": "s-gate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "css-declaration-sorter": "^7.1.1",
+    "gulp": "^4.0.2",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.69.6"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}

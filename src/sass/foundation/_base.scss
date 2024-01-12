@@ -1,0 +1,60 @@
+@use './globals' as *;
+
+// *{
+//     // outline: 1px solid greenyellow;
+// }
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+
+body{
+    line-height: 1.7;
+}
+
+img{
+    width: 100%;
+}
+.sec-title{
+    font-size: $box-title;
+    text-align: center;
+    font-weight: bold;
+    @include mq(){
+        font-size: $t-h2title;
+    }
+}
+
+.l-wrapper{
+    padding: 0 50px;
+
+}
+
+.js-fade {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: opacity 1s,visibility 1s, transform 1s;
+}
+
+.scroll {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+}
+
+.fadeIn{
+    opacity: 0;
+    /* visibility: hidden; */
+     transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0,1.2,1.0,1.0);
+}
+.active{
+    opacity: 1;
+    /* visibility: visible; */
+    transform: translateY(0px);
+}
+
+
+

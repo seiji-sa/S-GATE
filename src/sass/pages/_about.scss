@@ -1,0 +1,108 @@
+@use './globals' as *;
+
+.about{
+    padding-top: 45px;
+    .top-txt{
+        margin-bottom: 30px;
+        max-width: 800px;
+        margin: 0 auto;
+        margin-bottom: 60px;
+        @include mq(){
+            margin-bottom: 120px;
+        }
+        & h2{
+            margin-bottom: 30px;
+        }
+        & p{
+            font-size: $base;
+            @include mq(){
+                font-size: 16px;
+            }
+        }
+    }
+
+    .web-ec{
+        .box-title{
+            color: $cWeb;
+        }
+        .txt-box{
+            background: $cWeb;
+         }
+    }
+
+    .sns{
+        @include mq(){
+            .box-container{
+                flex-direction: row-reverse;
+            }
+        }
+        @include mq(xl){
+            .box-container{
+                display: block;
+            }
+        }
+        .box-title{
+            color: $cSns;
+        }
+       .txt-box{
+           background: $cSns;
+        }
+    }
+    .edit{
+        .box-title{
+            color: $cEdit;
+        }
+        .txt-box{
+            background: $cEdit;
+         }
+    }
+
+    .school{
+        @include mq(){
+            .box-container{
+                flex-direction: row-reverse;
+            }
+        }
+        @include mq(xl){
+            .box-container{
+                display: block;
+            }
+        }
+        .box-title{
+            color: $cSchool;
+        }
+       .txt-box{
+           background: $cSchool;
+        }
+    }
+    .ses{
+        .box-title{
+            color: $cSes;
+        }
+        .txt-box{
+            background: $cSes;
+         }
+    }
+
+    .market{
+        @include mq(){
+            .box-container{
+                flex-direction: row-reverse;
+            }
+        }
+        @include mq(xl){
+            .box-container{
+                display: block;
+            }
+        }
+        .box-title{
+            color: $cMarket;
+        }
+       .txt-box{
+           background: $cMarket;
+        }
+    }
+}
+
+
+

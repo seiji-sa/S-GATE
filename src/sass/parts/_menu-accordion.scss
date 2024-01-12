@@ -1,0 +1,17 @@
+@use './globals' as *;
+.slide-wrapper{
+    background: #000;
+}
+.slide-list{
+    display: none;
+    font-size: $base;
+    @include mq(){
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+
+    }
+    // .slide-item{
+
+    // }
+}
+

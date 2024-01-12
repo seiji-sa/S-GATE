@@ -1,0 +1,91 @@
+@use './globals' as *;
+
+.footer{
+    .top-scroll{
+        display: none;
+        position: relative;
+        @include mq(xl){
+            display: block;
+            width: 100%;
+            height: 60px;
+            border: 1px solid $cGray2;
+        }
+        .fa-angle-up{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+    /*コレ*/transform: translate(-50%,-50%);
+        }
+    }
+    .footer-container{
+        max-width: 960px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 40px 0;
+        .s-gate{
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .small{
+            margin-bottom: 15px;
+        }
+        p{
+            font-size: $small;
+        }
+    }
+    .f-nav{
+        background: $lightGray;
+        .f-nav__list{
+            height: 50px;
+            display: flex;
+            align-items: center;
+            font-size: $small;
+            white-space: nowrap;
+            overflow-x: auto;
+            max-width: 400px;
+            margin: 0 auto;
+            @include mq(){
+                max-width: 700px;
+                height: 60px;
+                padding: 20px;
+                font-size: $base;
+                gap: 36px;
+                overflow:hidden;
+                justify-content: center;
+            }
+            & li{
+                margin: 0 10px;
+            }
+        }
+    }
+    .copy{
+        text-align: center;
+        font-size: $small;
+        padding: 15px;
+        background: $cMain;
+        color: $cWhite;
+        display: block;
+        @include mq(){
+            padding: 20px;
+        }
+    }
+    .top-btn{
+        background-color: $cBlack;
+        color: $cWhite;
+        width: 50px;
+        height: 50px;
+        z-index: 1;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        @include mq(){
+            width: 60px;
+            height: 60px;
+        }
+        @include mq(xl){
+            display: none;
+        }
+    }
+
+
+}

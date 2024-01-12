@@ -1,0 +1,69 @@
+@use './globals' as *;
+
+.list__box{
+    margin-bottom: 40px;
+    @include mq(xl){
+        width: 33%;
+    }
+}
+
+
+.box-title{
+    font-size: $box-title;
+    text-align: center;
+    line-height: .7;
+    font-weight: bold;
+}
+.items-container, .items-container2{
+    @include mq(xl){
+        width: 100%;
+        display: flex;
+        gap: 50px;
+    }
+}
+.box-container{
+    height: 100%;
+    @include mq(){
+        display: flex;
+    }
+    @include mq(xl){
+        flex-direction: column;
+    }
+    .txt-box{
+        height: 360px;
+        color: $cWhite;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        & h4{
+            font-size: $h4;
+            margin-bottom: 6px;
+        }
+        @include mq(){
+            width: 50%;
+            height: 360px;
+        }
+        @include mq(xl){
+           width: 100%;
+        }
+    }
+    .img-box{
+        height: 360px;
+        background: $lightGray;
+        display: grid;
+        place-items: center;
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        @include mq(){
+            width: 50%;
+            height: 360px;
+        }
+        @include mq(xl){
+            width: 100%;
+         }
+    }
+
+}

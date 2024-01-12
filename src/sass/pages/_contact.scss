@@ -1,0 +1,50 @@
+@use './globals' as *;
+
+.contact{
+    height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, .7),  rgba(0, 0, 0, .7)),  url(/imges/contact.jpg) no-repeat center /auto ;
+    text-align: center;
+    position: relative;
+    @include mq(xl){
+        height: 700px;
+    }
+    .contact-container{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $cWhite;
+        padding: 0 25px;
+        @include mq(){
+            font-size: 16px;
+        }
+        .contact-title{
+            font-size: $h2;
+            @include mq(){
+                font-size: 44px;
+            }
+            @include mq(xl){
+                font-size: 60px;
+            }
+        }
+        .contact__txt{
+            max-width: 670px;
+            margin: 20px auto;
+        }
+        .btn{
+            padding: 10px 15px;
+            border: 1px solid $cWhite;
+            @include mq(){
+                padding: 15px 20px;
+                transition: all .5s;
+                margin-top: 40px;
+            }
+            @include mq(xl){
+                padding: 20px 70px;
+                transition: all .5s;
+                margin-top: 60px;
+            }
+        }
+    }
+}

@@ -1,0 +1,150 @@
+@use './globals' as *;
+.h-menu{
+    display: grid;
+    place-items: center;
+    width: 60px;
+    background: $cMain;
+    border: none;
+    aspect-ratio: 1;
+    cursor: pointer;
+    &:hover{
+        background: $cMenuHover;
+    }
+    @include mq(xl){
+        transition: all .5s;
+        width: 80px;
+    }
+    span{
+        display: block;
+        background: $cWhite;
+        width: 22px;
+        height: 2px;
+        grid-area: 1 / 1 / -1 / -1;
+        &:nth-child(1){
+            translate: 0 -.5rem;
+            transition: all .5s;
+        }
+        &:nth-child(2){
+            transition: all .5s;
+            opacity: 1;
+        }
+        &:nth-child(3){
+            translate: 0 .5rem;
+            transition: all .5s;
+        }
+    }
+}
+.h-menu--open{
+    top: 50%;
+    &.h-menu span:first-child {
+        translate: 0 ;
+        rotate : 135deg;
+        transition: all .5s;
+    }
+    &.h-menu span:last-child {
+        translate: 0 ;
+        rotate :-135deg;
+        transition: all .5s;
+      }
+    &.h-menu span:nth-child(2) {
+        opacity: 0;
+      }
+
+}
+
+
+
+.header {
+  .navigation {
+    display: none;
+    background: $cMain;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    height: calc(100vh - 70px);
+    z-index: 9999;
+    color: $cWhite;
+    @include mq(xl){
+      height: calc(100vh - 80px);
+      top: 80px;
+    }
+  }
+  .nav-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  // .navigation__list {
+
+  // }
+  .navigation__list-item{
+    border-bottom: solid 1px $cMenuBorder;
+    position: relative;
+    cursor: pointer;
+    font-weight: normal;
+    transition: all .5s ease;
+    &::before,
+    &::after{
+    position: absolute;
+    content:'';
+    width: 15px;
+    height: 2px;
+    background-color: $cWhite;
+    top:48%;
+    right: 15px;
+    }
+    &::before{
+        transform: rotate(0deg);
+
+    }
+    &::after{
+        transform: rotate(0deg);
+    }
+    &.close::before{
+        transform: rotate(90deg);
+
+    }
+    &.close::after{
+        transform: rotate(-0deg);
+    }
+
+  }
+  .navigation__list-item ,.wifi-icon, .f-nav__list{
+    @include mq(){
+
+    }
+  }
+
+  .wifi-icon{
+    height: 30px;
+    width: 30px;
+  }
+  .f-nav__list{
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    font-size: $small;
+  }
+  .navigation__list-item:first-child {
+    border-top: solid 1px $cMenuBorder;
+  }
+  .navigation__link {
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: .5s;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .navigation__link:hover {
+      background: $cMenuHover;
+    }
+  }
+.navigation__list,.wifi-icon,.f-nav__list{
+  margin-bottom: 20px;
+}
+
+}
