@@ -1,54 +1,60 @@
-$("#h-menu").on("click", function(){
-    $('.navigation').slideToggle(0)
-    $('.h-menu').toggleClass('h-menu--open')
-});
-
-$('#slide-item').on("click", function(){
-    $('.slide-list').slideToggle();
-    if($(this).hasClass('close')){
-        $(this).removeClass('close');
-    }else{
-        $(this).addClass('close');
-    }
-});
-
-$(window).on('load', function(){
-    $('.lode-fade').each(function(){
-        var element = $(this);
-        var fadeInElements = element.find('.fadeIn');
-
-        fadeInElements.each(function (i, e) {
-            setTimeout(() => {
-                $(e).delay(i * 300).addClass('active');
-            }, 500 * i);
+$(function () {
+    $('.load-fadeIn').each(function (i, e) {
+        $(e).delay(i * 500).queue(function () {
+          $(this).addClass("active");
         });
+      });
+    // ハンバーガーメニュー
+    $("#h-menu").on("click", function () {
+      $(".navigation").slideToggle();
+      $(".h-menu").toggleClass("h-menu--open");
     });
-});
 
+    // アコーディオン
+    $("#slide-item").on("click", function () {
+      $(".slide-wrapper").slideToggle();
+      $(this).toggleClass("close");
+    });
 
-$(window).on('scroll', function(){
-    var scrollTop = $(window).scrollTop();
-    var bgPosition = scrollTop / 2;
-    if(bgPosition){
-        $('#contact').css('background-position', 'top bottom -'+ bgPosition + 'px');
+    // スクロール時の処理
+    function handleScrollAnimation(container, fadeIn) {
+      $(container).each(function () {
+        var pos = $(this).offset().top;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll > pos - windowHeight + 100) {
+          $(this).addClass("scroll");
+          $(fadeIn).each(function (i, e) {
+            $(e).delay(i * 500).queue(function () {
+              $(e).addClass("active");
+            });
+          });
+        }
+      });
     }
-});
 
-
-$(function(){
-    $(window).on('scroll', function(){
-        $('.js-fade').each(function(){
-            var pos = $(this).offset().top;
-            var scroll = $(window).scrollTop();
-            var windowHeight = $(window).height();
-            if (scroll > pos - windowHeight + 100){
-                $(this).addClass('scroll');
-                $('.fadeIn').each(function (i, e) {
-                    setTimeout(() => {
-                        $(e).delay(i * 300).addClass('active');
-                    }, 500 * i);
-                });
-            }
-        });
+    $(window).on("scroll", function () {
+      handleScrollAnimation(".items-container", ".fadeIn1");
+      handleScrollAnimation(".top-txt", ".top-txt");
+      handleScrollAnimation(".js-fade", ".js-fade");
+      handleScrollAnimation(".items-container2", ".fadeIn2");
     });
-});
+
+    // 背景の動き
+    $(function () {
+      var target1 = $("#contact");
+      var targetPosOT1 = target1.offset().top;
+      var targetFactor = 0.2;
+      var windowH = $(window).height();
+      var scrollYStart1 =  windowH - targetPosOT1 ;
+
+      $(window).on('scroll', function () {
+          var scrollY = $(this).scrollTop();
+          if (scrollY > scrollYStart1) {
+              target1.css('background-position-y', (scrollY - targetPosOT1) * targetFactor + 'px');
+          }
+      });
+  });
+
+  });
+

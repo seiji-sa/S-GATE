@@ -706,7 +706,6 @@
 }
 
 .slide-list {
-  display: none;
   font-size: 14px;
   max-width: 1030px;
   flex-wrap: wrap;
@@ -808,7 +807,7 @@ img {
   transform: translateY(0px);
 }
 
-.fadeIn {
+.fadeIn, .load-fadeIn {
   opacity: 0;
   /* visibility: hidden; */
   transform: translateY(20px);
