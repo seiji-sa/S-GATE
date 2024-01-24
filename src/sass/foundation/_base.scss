@@ -34,20 +34,15 @@ img {
   transition: opacity 1s, visibility 1s, transform 1s;
 }
 
-.scroll {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0px);
-}
 
 .fadeIn ,.load-fadeIn {
   opacity: 0;
-  /* visibility: hidden; */
+  visibility: hidden;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(0, 1.2, 1, 1);
 }
 .active {
   opacity: 1;
-  /* visibility: visible; */
+ visibility: visible;
   transform: translateY(0px);
 }

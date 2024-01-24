@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="/dist/css/style.css">
     <script src="https://kit.fontawesome.com/1a6d0df1c6.js" crossorigin="anonymous"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="/dist/js/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="../dist/js/script.js" defer></script>
 </head>
 <body id="body">
     <header class="header">
@@ -66,7 +69,11 @@
                 <div class="hero-img-container">
                     <h2></h2>
                     <p></p>
-                    <img class="hero-img" src="/imges/hero-img.jpg" alt="">
+                    <div class="hero-img__images">
+                        <img class="hero-img" src="../imges/hero1.jpg" alt="">
+                        <img class="hero-img" src="../imges/hero2.jpg" alt="">
+                        <img class="hero-img" src="../imges/hero3.jpg" alt="">
+                    </div>
                 </div>
             </div>
             <div class="down-scroll load-fadeIn"><a href="#about"><i class="fa-solid fa-chevron-down"></i></a></div>
@@ -115,7 +122,7 @@
                         </a>
                     </li>
                 </div>
-                <div class="items-container2 js-fade">
+                <div class="items-container2">
                     <li class="list__box school fadeIn fadeIn2">
                         <a href="#">
                             <h3 class="box-title">プログラミングスクール</h3>
@@ -155,7 +162,7 @@
                 </div>
             </ul>
         </section>
-        <section id="news" class="news js-fade">
+        <section id="news" class="news js-fade news-fade">
             <h2 class="sec-title">お知らせ</h2>
             <ul class="news-list l-wrapper">
                 <li class="news-item">
@@ -170,13 +177,13 @@
             </ul>
         </section>
         <section id="contact" class="contact">
-            <div class="contact-container js-fade">
+            <div class="contact-container js-fade contact-fade">
                 <h2 class="contact-title">お問い合わせ</h2>
                 <p class="contact__txt">いつでも安心してご相談いただける窓口を設けておりますので、新規ホームページ制作や、<br>
                     Webサイトリニューアルをご検討の方や、集客のお悩みやCVRを上げられたいなど、<br>
                     マーケティングに関することも、まずは一度ご相談ください。
                 </p>
-                <button class="btn">お問い合わせはこちら</button>
+                <button class="btn"><span class="slide-btn slide-bg"></span>お問い合わせはこちら</button>
             </div>
         </section>
     </main>

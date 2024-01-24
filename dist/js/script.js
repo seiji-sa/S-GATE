@@ -15,6 +15,15 @@ $(function () {
       $(".slide-wrapper").slideToggle();
       $(this).toggleClass("close");
     });
+    // 画像切り替え
+      jQuery(document).ready(function($){ /* スマホ対応 */
+
+            /* $(document).ready(function(){　これだとスマホでスライドしない */
+            $('.hero-img__images').bxSlider({
+                auto: true,
+                pause: 5000 /* 画像の切り替え時間指定、最後のカンマは付けない */
+            });
+        });
 
     // スクロール時の処理
     function handleScrollAnimation(container, fadeIn) {
@@ -23,7 +32,6 @@ $(function () {
         var scroll = $(window).scrollTop();
         var windowHeight = $(window).height();
         if (scroll > pos - windowHeight + 100) {
-          $(this).addClass("scroll");
           $(fadeIn).each(function (i, e) {
             $(e).delay(i * 500).queue(function () {
               $(e).addClass("active");
@@ -36,7 +44,8 @@ $(function () {
     $(window).on("scroll", function () {
       handleScrollAnimation(".items-container", ".fadeIn1");
       handleScrollAnimation(".top-txt", ".top-txt");
-      handleScrollAnimation(".js-fade", ".js-fade");
+      handleScrollAnimation(".news-fade", ".news-fade");
+      handleScrollAnimation(".contact-fade", ".contact-fade");
       handleScrollAnimation(".items-container2", ".fadeIn2");
     });
 
@@ -45,14 +54,10 @@ $(function () {
       var target1 = $("#contact");
       var targetPosOT1 = target1.offset().top;
       var targetFactor = 0.2;
-      var windowH = $(window).height();
-      var scrollYStart1 =  windowH - targetPosOT1 ;
 
       $(window).on('scroll', function () {
           var scrollY = $(this).scrollTop();
-          if (scrollY > scrollYStart1) {
-              target1.css('background-position-y', (scrollY - targetPosOT1) * targetFactor + 'px');
-          }
+          target1.css('background-position-y', (scrollY - targetPosOT1) * targetFactor + 'px');
       });
   });
 
