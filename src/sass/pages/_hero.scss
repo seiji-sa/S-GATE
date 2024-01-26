@@ -1,81 +1,89 @@
-@use './globals' as *;
+@use "./globals" as *;
 
-.hero{
+.hero {
+  position: relative;
+  height: calc(100vh - 60px);
+  @include mq(xl) {
+    height: calc(100vh - 80px);
+  }
+  .hero-wrapper {
+    @include mq(l) {
+      display: flex;
+    }
+  }
+  .hero-txt-container {
+    height: calc(50vh - 30px);
+    background: $cMain;
+    display: grid;
+    place-items: center;
+    color: $cWhite;
+    @include mq(l) {
+      height: calc(100vh - 60px);
+      width: 50vw;
+    }
+    @include mq(xl) {
+      height: calc(100vh - 80px);
+    }
+    .hero-txt-container__txt___s {
+      font-size: $base;
+      margin-bottom: 10px;
+      @include mq() {
+        font-size: $t-p;
+        margin-bottom: 25px;
+      }
+    }
+    .hero-txt-container__txt___l {
+      font-size: $h2;
+      line-height: 1.2;
+      @include mq() {
+        font-size: $t-h2;
+      }
+    }
+  }
+  .hero-img-container {
+    height: calc(50vh - 30px);
     position: relative;
-    height: calc(100vh - 60px);
-    @include mq(xl){
-        height: calc(100vh - 80px);
+    @include mq(l) {
+      height: calc(100vh - 80px);
+      width: 50vw;
     }
-    .hero-wrapper{
-        @include mq(l){
-            display: flex;
-        }
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .hero-txt-container{
-        height: calc(50vh - 30px);
-        background: $cMain;
-        display: grid;
-        place-items: center;
-        color: $cWhite;
-        @include mq(l){
-            height: calc(100vh - 60px);
-            width: 50vw;
-        }
-        @include mq(xl){
-            height: calc(100vh - 80px);
-        }
-        .hero-txt-container__txt___s{
-            font-size: $base;
-            margin-bottom: 10px;
-            @include mq(){
-                font-size: $t-p;
-                margin-bottom: 25px;
-            }
-        }
-        .hero-txt-container__txt___l{
-            font-size: $h2;
-            line-height: 1.2;
-            @include mq(){
-                font-size: $t-h2;
-            }
-        }
+  }
+  @keyframes fdzm {
+    0% {
+      transform: scale(1);
     }
-    .hero-img-container{
-        height: calc(50vh - 30px);
-        position: relative;
-        @include mq(l){
-            height: calc(100vh - 80px);
-            width: 50vw;
-        }
-        img{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    100% {
+      transform: scale(1.1);
     }
-    .down-scroll{
-        display: none;
-        @include mq(){
-            display: block;
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: $cWhite;
-            position: absolute;
-            bottom: px;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            position: relative;
-        }
-        .fa-chevron-down{
-            position: absolute;
-            left: 50%;
-            top: 30%;
-            transform: translate(-50%,-50%);
-
-
-        }
+  }
+  .animation {
+    animation: fdzm 4s 0s forwards;
+  }
+  .down-scroll {
+    display: none;
+    @include mq() {
+      display: block;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: $cWhite;
+      position: absolute;
+      bottom: px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: relative;
     }
-
+    .fa-chevron-down {
+      position: absolute;
+      left: 50%;
+      top: 30%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }

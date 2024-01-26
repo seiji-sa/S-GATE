@@ -15,15 +15,33 @@ $(function () {
       $(".slide-wrapper").slideToggle();
       $(this).toggleClass("close");
     });
-    // 画像切り替え
-      jQuery(document).ready(function($){ /* スマホ対応 */
+    // ヒーロー画像を一定時間後に切り替える
+  //   $(function () {
+  //     // Initialize Slick slider
+  //     $('.hero-img__images').slick({
+  //         fade: true,
+  //         dots: false,
+  //         infinite: true,
+  //         speed: 1000,
+  //         slidesToShow: 1,
+  //         adaptiveHeight: false,
+  //         arrows: false,
+  //         autoplay: true,
+  //         autoplaySpeed: 4000,
+  //         pauseOnFocus: false,
+  //         pauseOnHover: false
+  //     })
+  //     .on({
+  //         beforeChange: function (event, slick, currentSlide, nextSlide) {
+  //             $(".slick-slide", this).eq(nextSlide).addClass("animation");
+  //             $(".slick-slide", this).eq(currentSlide).addClass("rm-animation");
+  //         },
+  //         afterChange: function () {
+  //             $(".rm-animation", this).removeClass("rm-animation animation");
+  //         },
+  //     });
+  // });
 
-            /* $(document).ready(function(){　これだとスマホでスライドしない */
-            $('.hero-img__images').bxSlider({
-                auto: true,
-                pause: 5000 /* 画像の切り替え時間指定、最後のカンマは付けない */
-            });
-        });
 
     // スクロール時の処理
     function handleScrollAnimation(container, fadeIn) {
@@ -48,6 +66,19 @@ $(function () {
       handleScrollAnimation(".contact-fade", ".contact-fade");
       handleScrollAnimation(".items-container2", ".fadeIn2");
     });
+
+    // top-btnのアニメーション
+    $(".top-btn").hide();
+    $(window).on("scroll", function () {
+      if ($(window).scrollTop() > 100) {
+        $(".top-btn").slideDown(200);
+      } else {
+        $(".top-btn").slideUp(200);
+      }
+    });
+
+
+
 
     // 背景の動き
     $(function () {
